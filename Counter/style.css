@@ -42,3 +42,9 @@ button:hover{
     box-shadow: 0px 5px 3px rgba(225, 99, 15, 0.869);
     
 }
+footer{
+    position:fixed;
+    bottom:10px;
+    font-size:0.8em;
+    color:#888888;
+}
