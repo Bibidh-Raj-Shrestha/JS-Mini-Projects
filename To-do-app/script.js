@@ -6,6 +6,11 @@ add_btn.addEventListener("click",add_task);
 let tasks = [];
 
 function add_task() {
+    if(tasks.length === 0)
+    {
+        task_list.style.backgroundColor="#455d7a";
+    }
+
     let task_value = task.value.trim();
     let date_value = date.value;
     if (task_value !== "") {
@@ -61,5 +66,9 @@ function display_task() {
 
         task_list.appendChild(task_div);
     });
+    if(tasks.length === 0)
+    {
+        task_list.style.backgroundColor="transparent";
+    }
 }
 

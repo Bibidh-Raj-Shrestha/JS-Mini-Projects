@@ -20,7 +20,7 @@ form textarea{
     border-radius: 5px;
 }
 .task-list{
-    background-color:  #455d7a;
+    background-color:  transparent;
     width:400px;
     padding:10px;
     border-radius: 12px;
