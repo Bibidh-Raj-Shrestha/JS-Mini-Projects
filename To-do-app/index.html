@@ -11,11 +11,21 @@
          <form >
             <label for="task">Enter your task :</label><br>
             <textarea name="task" id="task"></textarea><br>
-            <button type="button" onclick="add_task()">Add</button>
+            <input type="date" name="date" id="date">
+            <button type="button" id="add-btn">Add</button>
         </form>
     </section>
    
     <section class="task-list" id="task-list">
+        <div class="task-div">
+                 <div class="task-point">
+                     <p>${task}</p>
+                 </div>
+                 <div class="task_control">
+                     <p>2025-10-25</p>
+                    <button>Delete</button>
+                 </div>
+             </div>
     </section>
     <script src="script.js"></script>
 </body>
