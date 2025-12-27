@@ -24,6 +24,9 @@ form textarea{
     width:400px;
     padding:10px;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap:5px;
 }
 .task-div{
     display: flex;
@@ -39,4 +42,22 @@ form textarea{
     font-weight: bold;
     font-size: 15px;
     background-color: #e3e3e3 ;
+}
+.task-control{
+    display: flex;
+    flex-direction: column;
+}
+.task-point{
+    font-size: larger;
+    font-family:'Times New Roman', Times, serif;
+}
+.task-control > p{    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.task-control > button{
+    color:rgba(255, 0, 0, 0.539);
+    align-self: flex-end;
+}
+.task-control > button:hover{
+    color:rgba(255, 0, 0, 0.819)
 }
