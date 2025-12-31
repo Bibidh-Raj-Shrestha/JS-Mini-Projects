@@ -19,22 +19,22 @@ const questions = [
 
 next_btn.addEventListener("click",next_question);
 
-let index=0;
+let points =0;
+let index=-1;
 function next_question(){
 
-    const selected = document.querySelector('input[name="quiz-option"]:checked');
+    const selected = document.querySelector('input[name="quiz-opt."]:checked');
 
     if (selected) {
-        console.log(selected.value);
+        if(selected.value === questions[index].answer)
+        {
+            points++;
+        }
     }
-
-
-
-    
-    
-
-    render_question(); 
+    score.textContent = `Score:${points}`;
     index++;
+    render_question(); 
+    
 }
 
 function render_question(){
