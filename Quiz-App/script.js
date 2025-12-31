@@ -20,17 +20,23 @@ const questions = [
 next_btn.addEventListener("click",next_question);
 
 let points =0;
-let index=-1;
+let index=0;
+render_question();
 function next_question(){
 
     // get the selected input 
-    const selected = document.querySelector('input[name="quiz-opt."]:checked');
+    const selected = document.querySelector('input[name="quiz-opt"]:checked');
 
     if (selected) {
         if(selected.value === questions[index].answer)
         {
             points++;
         }
+    }
+    if(!selected)
+    {
+        console.log("alu"); 
+        return;
     }
 
     //update the score
@@ -40,13 +46,17 @@ function next_question(){
     index++;
 
     console.log(index);
-    if(index+1> questions.length)
+    if(index >= questions.length)
     {
         quiz.innerHTML = "";
-        end = document.createElement("h2");
+        let end = document.createElement("h1");
         end.textContent = "Quiz completed";
         
+        let total_score = document.createElement("h2");
+        total_score.textContent = `Your Total Score : ${points}/${questions.length}`;
+
         quiz.appendChild(end);
+        quiz.appendChild(total_score);
         return;
     }
     render_question(); 
@@ -66,7 +76,7 @@ function render_question(){
         let div = document.createElement("div");
         let input = document.createElement("input");
         input.type = "radio";
-        input.name = "quiz-opt.";
+        input.name = "quiz-opt";
         input.value = option;
 
         let label = document.createElement("label");
