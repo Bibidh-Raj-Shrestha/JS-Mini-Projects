@@ -1,0 +1,73 @@
+body{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    background-color: #233142;
+}
+.expense-name-input{
+    padding:10px;
+    font-size: larger;
+    margin-top:200px;
+    background-color:  #455d7a;
+    border-radius: 10px;
+}
+form textarea{
+    resize:none;
+    border-radius: 5px;
+}
+form input[type="number"]{
+    width:220px;
+    border-radius: 5px;
+    border:none;
+}
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance:none ;
+}
+.expense-name-list{
+    background-color:  transparent;
+    width:400px;
+    padding:10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap:5px;
+}
+.expense-name-div{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    color:black;
+    background: #e3e3e3;
+    border-radius:10px ;
+    font-size:large;
+}
+.expense-name-div button{
+    border:none;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #e3e3e3 ;
+}
+.expense-name-control{
+    display: flex;
+    flex-direction: column;
+}
+.expense-name-point{
+    font-size: larger;
+    font-family:'Times New Roman', Times, serif;
+}
+.expense-name-control > p{    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.expense-name-control > button{
+    color:rgba(255, 0, 0, 0.539);
+    align-self: flex-end;
+}
+.expense-name-control > button:hover{
+    color:rgba(255, 0, 0, 0.819)
+}
+.expense-total{
+    display: flex;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="expense-name-input">
+         <form >
+            <label for="expense-name">Enter your expense-name :</label>
+            <textarea name="expense-name" id="expense-name" rows="1"></textarea><br>
+
+            <label for="expense">Expense Amount: </label>
+            <input type="number" name="expense" id="expense" min="0"><br>
+
+            <label for="date">Enter Date :</label>
+            <input type="date" name="date" id="date"><br>
+
+            <button type="button" id="add-btn">Add</button>
+        </form>
+    </section>
+   <section class="expense-total" id="expense-total">
+        <h2>Expenses Total:</h2>
+   </section>
+    <section class="expense-name-list" id="expense-name-list">
+       
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
