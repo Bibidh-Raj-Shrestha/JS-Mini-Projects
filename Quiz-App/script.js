@@ -23,6 +23,7 @@ let points =0;
 let index=-1;
 function next_question(){
 
+    // get the selected input 
     const selected = document.querySelector('input[name="quiz-opt."]:checked');
 
     if (selected) {
@@ -31,8 +32,23 @@ function next_question(){
             points++;
         }
     }
+
+    //update the score
     score.textContent = `Score:${points}`;
+
+    
     index++;
+
+    console.log(index);
+    if(index+1> questions.length)
+    {
+        quiz.innerHTML = "";
+        end = document.createElement("h2");
+        end.textContent = "Quiz completed";
+        
+        quiz.appendChild(end);
+        return;
+    }
     render_question(); 
     
 }
