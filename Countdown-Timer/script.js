@@ -40,7 +40,7 @@ function start(){
 let pause_check =  false;
 function pause(){
     if(!pause_check){
-        check = clearInterval(check);
+        clearInterval(check);
         pause_check = true;
     }
     else{
@@ -51,7 +51,10 @@ function pause(){
 }
 
 function reset(){
-    check = clearInterval(check);
+    clearInterval(check);
+    check = null;
+    total_secs = 0;
+    pause_check = false;
     update_display(0);
      return;
 }
