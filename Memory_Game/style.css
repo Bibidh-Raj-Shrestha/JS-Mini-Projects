@@ -1,0 +1,21 @@
+.game-grid{
+    display: grid;
+    grid-template-columns: repeat(4,100px);
+    grid-template-columns: repeat(auto,100px);
+    gap:10px;
+}
+.card{
+    font-size: xx-large;
+    height:100px;
+    width:100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: aqua;
+    border-radius: 10px;
+}
+.flipped{  
+    color:black;  
+    background-color: aqua;
+}
