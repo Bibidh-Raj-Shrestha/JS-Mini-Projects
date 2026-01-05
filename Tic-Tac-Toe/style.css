@@ -6,7 +6,7 @@
     box-shadow: 0px 0px 0px 2px;
 }
 .cell{
-    font-size: 150px;
+    font-size: 80px;
     font-family: "Permanent Marker",cursive;
     display:flex;
     justify-content: center;
