@@ -12,13 +12,6 @@
 
     <label for="currencyF">From:</label>
     <input list="currency" id="currencyF">
-    <datalist id="currency">
-        <option value="USD"></option>
-        <option value="NPR"></option>
-        <option value="INR"></option>
-        <option value="EUR"></option>
-    </datalist>
-
     <label for="currencyT">=>To:</label>
     <input list="currency" id="currencyT">
     <datalist id="currency">
@@ -30,6 +23,8 @@
 
     <label for="result">Result:</label>
     <input type="number" id="result" readonly><br><br>
+
+    <p id="message"></p>
 
     <button id="convert">Convert</button>
     <button id="reset">Reset</button>
