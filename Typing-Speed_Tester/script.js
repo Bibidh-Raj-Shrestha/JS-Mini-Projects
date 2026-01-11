@@ -5,7 +5,7 @@ const result = document.getElementById("result");
 const test_display = document.getElementById("test_display");
 
 // question sentence for the test
-let que = "The quiet laptop hummed softly as the rain tapped against the window and ideas slowly turned into code."
+let que = "The quiet" // laptop hummed softly as the rain tapped against the window and ideas slowly turned into code."
 sentence.textContent = que;
 
 // time variables
@@ -14,19 +14,30 @@ let check;
 let taken_time;
 
 let first_input = false;
-let index = 0;
 let errors = 0;
 input.addEventListener("input",input_checker);
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+    }
+});
+
 function input_checker(){
     if(!first_input)
     {
         first_input=true;
         start_timer();
     }
-    else{
-        if(que[index] !== input.value[index])
+    // Reset errors and recalc
+    errors = 0;
+    const typed = input.value;
+    for (let i = 0; i < typed.length; i++) {
+        if (typed[i] !== que[i]) 
             errors++;
-        index++;
+    }
+
+    if(typed.length==que.length)
+    {
         if(que.length === input.value.length)
         {
             test_display.style.display = "none";
@@ -43,6 +54,24 @@ function input_checker(){
             reset_btn.addEventListener("click",reset);
             reset_btn.textContent = "Reset";
             result.appendChild(reset_btn);
+
+            const typedLength = input.value.length;
+            let correct_chars = typedLength-errors;
+            const total_Minutes = taken_time / 60;
+            const wpm = Math.round((correct_chars / 5) / total_Minutes);
+
+            let wpm_display = document.createElement("p");
+            wpm_display.textContent = `WPM: ${wpm}`;
+            result.appendChild(wpm_display);
+
+
+            input.addEventListener("keydown",(event)=>{
+                if(event.key === "Enter")
+                {
+                    event.preventDefault();
+                    reset();
+                }
+            });
         }            
     }
 }
@@ -74,7 +103,6 @@ function stop_timer(){
 function reset(){
     first_input = false;
     time = 0;
-    index = 0;
     errors = 0;
     input.value = '';
     test_display.style.display = "block";
