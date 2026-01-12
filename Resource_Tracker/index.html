@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Tracker</title>
+  <style>
+    .resource-card, .resource-head{
+        width:30rem;
+        display:flex;
+        justify-content:space-between;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Add Resource Form -->
+    <div>
+        <h2>Add a Resource</h2>
+        <form id="resource-form">
+            <input type="text" id="title" placeholder="Resource Title" required>
+            <select id="type">
+                <option value="Book">Book</option>
+                <option value="Article">Article</option>
+                <option value="Video">Video</option>
+                <option value="Course">Course</option>
+                <option value="Other">Other</option>
+            </select>
+        
+            <select id="status">
+            <option value="To Learn">To Learn</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            </select>
+        
+            <button id="add-btn">Add Resource</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Resource List -->
+    <h2>Your Resources</h2>
+    <div class="resource-head">
+        <h3>S.N</h3>
+        <h3>Title</h3>
+        <h3>Type</h3>
+        <h3>Status</h3>
+    </div>
+    <div id="resource-list">
+        
+        <!-- Resources will be rendered here -->
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
+ 
