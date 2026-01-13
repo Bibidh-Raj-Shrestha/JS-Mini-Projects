@@ -1,8 +1,8 @@
 // ======= 1. State =======
 let items = localStorage.getItem("items");
 let resources = (items)? JSON.parse(items) : [];
-let options = ["To Learn","In Progress","Completed"];
-
+let status_opt = ["To Learn","In Progress","Completed"];
+let types_opt = ["Book","Article","Video","Course","Other"];
 
 // ======= 2. DOM Elements =======
 const form = document.getElementById('resource-form');
@@ -65,7 +65,7 @@ function renderResources() {
         // Status
         let status = document.createElement("select");
 
-        options.forEach((opt)=>{
+        status_opt.forEach((opt)=>{
             let option = document.createElement("option");
             option.textContent = opt;
             if(opt === el.status)       
@@ -86,10 +86,49 @@ function renderResources() {
             //edit button
         let edit_btn = document.createElement('button');
         edit_btn.textContent = "Edit";
-        edit_btn.addEventListener("click",()=>{
-            edit_resource(element_id,edit_btn.textContent);
-            edit_btn.textContent = (edit_btn.textContent=='Edit') ? 'Done' : 'Edit';
+        edit_btn.addEventListener("click", () => {
+
+            if (edit_btn.textContent === "Edit") {
+                // Enable editing
+                title.contentEditable = true;
+                title.focus();
+
+                // Replace type <p> with <select>
+                const edit_type = document.createElement("select");
+
+                types_opt.forEach((opt) => {
+                    const option = document.createElement("option");
+                    option.textContent = opt;
+                    option.value = opt;
+                    if (opt === el.type) option.selected = true;
+                    edit_type.appendChild(option);
+                });
+                edit_type.style.justifySelf = "center";
+                edit_type.style.alignSelf = "center";
+
+                type.replaceWith(edit_type);
+                type = edit_type;
+
+                edit_btn.textContent = "Done";
+
+            } else {
+                // Save changes
+                el.title = title.textContent;
+                el.type = type.value;
+
+                title.contentEditable = false;
+
+                // Replace select back to <p>
+                const type_p = document.createElement("p");
+                type_p.textContent = el.type;
+                type.replaceWith(type_p);
+                type = type_p;
+
+                edit_btn.textContent = "Edit";
+                renderResources();
+            }
         });
+
             //delete button
         let del_btn = document.createElement("button");
         del_btn.textContent = "Delete";
@@ -115,12 +154,4 @@ function delete_resource(target){
     });
     resources = req_resources;
     renderResources();
-}
-
-function edit_resource(target,check)
-{
-    if(check === "Done")
-        return;
-    
-        
 }
