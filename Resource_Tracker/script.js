@@ -1,6 +1,7 @@
 // ======= 1. State =======
 let items = localStorage.getItem("items");
 let resources = (items)? JSON.parse(items) : [];
+let options = ["To Learn","In Progress","Completed"];
 
 
 // ======= 2. DOM Elements =======
@@ -62,19 +63,38 @@ function renderResources() {
         type.textContent = el.type;
 
         // Status
-        let status = document.createElement("p");
-        status.textContent = el.status;
+        let status = document.createElement("select");
+
+        options.forEach((opt)=>{
+            let option = document.createElement("option");
+            option.textContent = opt;
+            if(opt === el.status)       
+                option.selected = true;
+            status.appendChild(option);
+        });
+        status.addEventListener("change",(e)=>{
+            el.status = e.target.value;            
+            renderResources();
+        });
+        status.style.justifySelf = "center";
+        status.style.alignSelf = "center";
 
         // Actions 
+        let element_id = el.id;
         let action_div = document.createElement("div");
         action_div.classList.add("action-div");
+            //edit button
         let edit_btn = document.createElement('button');
         edit_btn.textContent = "Edit";
+        edit_btn.addEventListener("click",()=>{
+            edit_resource(element_id,edit_btn.textContent);
+            edit_btn.textContent = (edit_btn.textContent=='Edit') ? 'Done' : 'Edit';
+        });
+            //delete button
         let del_btn = document.createElement("button");
-        del_btn.value = el.id ;
         del_btn.textContent = "Delete";
         del_btn.addEventListener("click",()=>{
-            delete_resource(del_btn.value);
+            delete_resource(element_id);
         });
         
         action_div.append(edit_btn,del_btn);
@@ -95,4 +115,12 @@ function delete_resource(target){
     });
     resources = req_resources;
     renderResources();
+}
+
+function edit_resource(target,check)
+{
+    if(check === "Done")
+        return;
+    
+        
 }
