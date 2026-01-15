@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Project Checklist</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    h1 { text-align: center; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 8px 0; }
+    input[type="checkbox"] { margin-right: 10px; }
+    #message { margin-top: 20px; font-weight: bold; color: green; }
+  </style>
+</head>
+<body>
+  <h1>JS Project Enhancement Checklist</h1>
+  <ul>
+    <li><input type="checkbox" class="task"> Meaningful variable & function names</li>
+    <li><input type="checkbox" class="task"> Remove unused code / console logs</li>
+    <li><input type="checkbox" class="task"> Modularize code</li>
+    <li><input type="checkbox" class="task"> Avoid repeated code</li>
+    <li><input type="checkbox" class="task"> Test all inputs</li>
+    <li><input type="checkbox" class="task"> Fix console errors</li>
+    <li><input type="checkbox" class="task"> Buttons & inputs work consistently</li>
+    <li><input type="checkbox" class="task"> Layout & spacing look good</li>
+    <li><input type="checkbox" class="task"> Hover effects / cursor pointer</li>
+    <li><input type="checkbox" class="task"> Feedback messages / animations</li>
+    <li><input type="checkbox" class="task"> Quick testing done</li>
+  </ul>
+  <div id="message"></div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.task');
+    const message = document.getElementById('message');
+
+    checkboxes.forEach(box => {
+      box.addEventListener('change', () => {
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+        message.textContent = allChecked ? "🎉 All tasks completed!" : "";
+      });
+    });
+  </script>
+</body>
+</html>
