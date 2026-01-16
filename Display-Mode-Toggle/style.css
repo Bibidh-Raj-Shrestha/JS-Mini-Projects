@@ -1,20 +1,29 @@
+:root{
+    --bg-color: white;
+    --btn-color: white;
+    --accent-color: grey;
+    --shadow-color: grey;
+}
 body{
     display: flex;
     justify-content: center;
-}
-.background{
-    background-color: white;
-
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .toggle{
+    margin-top: 10px;
     margin-right: 20px;
     display: flex;
     justify-content: flex-start;
     width:100px;
     height:50px;
-    background-color: grey;
+    background-color: var(--accent-color);
+    box-shadow: 0px 0px 5px 3px var(--shadow-color);
     border-radius: 100px;
     cursor: pointer;
+}
+.toggle:hover{
+    box-shadow: 0px 0px 6px 5px var(--shadow-color);
 }
 .toggle-on{
     justify-content: flex-end;
@@ -26,7 +35,7 @@ body{
     margin:5px;
     width:40px;
     height:40px;
-    background-color: white;
+    background-color: var(--btn-color);
     border-radius: 100%;
     animation:toggle-off 2s linear infinite ease-in-out;
 }
@@ -47,12 +56,12 @@ body{
     animation:toggle-off 1s ease-in-out;
 }
 @keyframes toggle-off{
-    from{
+    0%{
         transform: translateX(50px) rotateZ(360deg);
     }
 }
 @keyframes toggle-on{
-    from{
+    0%{
         transform: translateX(-50px) rotate(360deg);
     }
 }
