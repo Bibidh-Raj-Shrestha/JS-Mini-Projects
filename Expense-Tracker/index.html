@@ -10,7 +10,7 @@
     <section class="expense-name-input">
          <form >
             <label for="expense-name">Enter your expense-name :</label>
-            <textarea name="expense-name" id="expense-name" rows="1"></textarea><br>
+            <input type="text" name="expense-name" id="expense-name"></input><br>
 
             <label for="expense">Expense Amount: </label>
             <input type="number" name="expense" id="expense" min="0"><br>
@@ -18,11 +18,14 @@
             <label for="date">Enter Date :</label>
             <input type="date" name="date" id="date"><br>
 
+           
+
             <button type="button" id="add-btn">Add</button>
+            
         </form>
+         <div class="message" id="message" ></div>
     </section>
    <section class="expense-total" id="expense-total">
-        <h2>Expenses Total:</h2>
    </section>
     <section class="expense-name-list" id="expense-name-list">
        

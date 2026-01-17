@@ -6,6 +6,14 @@ body{
     gap:20px;
     background-color: #233142;
 }
+.message{
+    display: flex;
+    flex-direction: column;
+}
+.message > p{
+    color: rgb(255, 62, 62);
+    margin:0px;
+}
 .expense-name-input{
     padding:10px;
     font-size: larger;
@@ -13,11 +21,9 @@ body{
     background-color:  #455d7a;
     border-radius: 10px;
 }
-form textarea{
-    resize:none;
-    border-radius: 5px;
-}
-form input[type="number"]{
+
+form input[type="number"],
+form input[type="text"]{
     width:220px;
     border-radius: 5px;
     border:none;
