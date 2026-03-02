@@ -34,22 +34,9 @@ function display_task() {
     // adds them to localstorage
     localStorage.setItem("tasks",tasksString);
     console.log(localStorage.getItem("tasks"));
-    task_list.innerHTML = ""; 
-    // tasks.forEach((task, index) => {
-    //     task_list.innerHTML += `
-    //         <div class="task-div">
-    //             <div class="task-point">
-    //                 <p>${task}</p>
-    //             </div>
-    //             <div class="task_control">
-    //                 <p></p>
-    //                 <button onclick="delete_task(${index})">Delete</button>
-    //             </div>
-    //         </div>
-    //     `;
-    // });
+    
 
-   tasks.forEach(({task,date_value}, index) => {
+    tasks.forEach(({task,date_value}, index) => {
         let task_div = document.createElement("div");
         task_div.classList.add("task-div");
         let task_point = document.createElement("div");
